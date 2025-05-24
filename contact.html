@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>聯絡我們 - 時尚科技公司</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;700&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="main-header">
+        <div class="logo">YourLogo</div>
+        <nav>
+            <ul>
+                <li><a href="index.html">首頁</a></li>
+                <li><a href="about.html">關於我們</a></li>
+                <li><a href="services.html">服務項目</a></li>
+                <li><a href="contact.html">聯絡我們</a></li>
+            </ul>
+        </nav>
+        <button class="menu-toggle" aria-label="Toggle menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </header>
+
+    <main>
+        <section class="content-section page-hero">
+            <div class="container">
+                <h1 class="page-title animate-on-load">聯絡我們</h1>
+            </div>
+        </section>
+
+        <section id="contact-form-section" class="content-section">
+            <div class="container">
+                <p class="text-center scroll-animate" data-animation="fade-up" style="max-width: 700px; margin: 0 auto 50px auto;">
+                    我們期待與您交流！無論您是對我們的服務感興趣，或是尋求合作機會，都歡迎填寫下方的表單，或透過其他方式與我們聯繫。
+                </p>
+                <form class="contact-form scroll-animate" data-animation="fade-in">
+                    <input type="text" placeholder="您的姓名" required>
+                    <input type="email" placeholder="您的電子郵件" required>
+                    <textarea placeholder="您的訊息" rows="5" required></textarea>
+                    <button type="submit" class="cta-button">傳送訊息</button>
+                </form>
+
+                <div class="contact-info scroll-animate" data-animation="fade-up" data-delay="100" style="margin-top: 50px; text-align:center;">
+                    <h3>其他聯絡方式</h3>
+                    <p><strong>Email:</strong> info@yourcompany.com</p>
+                    <p><strong>電話:</strong> +886 2 1234 5678</p>
+                    <p><strong>地址:</strong> 台灣台北市某某區某某路123號</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <p>&copy; <span id="currentYear"></span> 時尚科技公司. All Rights Reserved.</p>
+    </footer>
+
+    <script src="https://unpkg.com/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script src="https://unpkg.com/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

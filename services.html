@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>服務項目 - 時尚科技公司</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;700&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="main-header">
+        <div class="logo">YourLogo</div>
+        <nav>
+            <ul>
+                <li><a href="index.html">首頁</a></li>
+                <li><a href="about.html">關於我們</a></li>
+                <li><a href="services.html">服務項目</a></li>
+                <li><a href="contact.html">聯絡我們</a></li>
+            </ul>
+        </nav>
+        <button class="menu-toggle" aria-label="Toggle menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </header>
+
+    <main>
+        <section class="content-section page-hero">
+            <div class="container">
+                <h1 class="page-title animate-on-load">我們的服務</h1>
+            </div>
+        </section>
+
+        <section id="services-list" class="content-section">
+            <div class="container">
+                <p class="text-center scroll-animate" data-animation="fade-up" style="max-width: 700px; margin: 0 auto 50px auto;">
+                    我們提供一系列全面且深入的數位解決方案，旨在精準滿足您業務發展的各種特定需求。從初步的概念構想到最終的產品實現與市場推廣，我們的跨領域專業團隊將全程與您緊密合作，確保卓越成果。
+                </p>
+                <div class="services-grid">
+                    <div class="service-card scroll-animate" data-animation="fade-up">
+                        <div class="service-icon">
+                            <img src="http://googleusercontent.com/image_generation_content/0" alt="網站開發科技圖示" style="width: 80px; height: 80px; object-fit: contain;">
+                        </div>
+                        <h3>網站開發</h3>
+                        <p>我們專精於打造響應迅速、效能卓越且安全穩固的現代化網站與 Web 應用程式。服務涵蓋客製化前端介面開發、強大的後端邏輯建構、資料庫設計整合，以及符合最新 SEO 規範的優化。無論是企業形象官網、電商平台還是複雜的業務系統，我們都能為您量身訂製。</p>
+                    </div>
+                    <div class="service-card scroll-animate" data-animation="fade-up" data-delay="100">
+                        <div class="service-icon">
+                            <img src="https://via.placeholder.com/80x80?text=UI/UX+Icon" alt="UI/UX 設計圖標">
+                        </div>
+                        <h3>UI/UX 設計</h3>
+                        <p>我們堅信卓越的使用者體驗是數位產品成功的基石。我們的 UI/UX 設計團隊專注於使用者研究、資訊架構、互動設計與視覺美學，打造出既美觀又直觀易用的數位介面。透過細膩的設計流程，我們致力於提升使用者滿意度、增強品牌黏性，並最終實現您的商業目標。</p>
+                    </div>
+                    <div class="service-card scroll-animate" data-animation="fade-up" data-delay="200">
+                        <div class="service-icon">
+                            <img src="https://via.placeholder.com/80x80?text=Cloud+Icon" alt="雲端解決方案圖標">
+                        </div>
+                        <h3>雲端解決方案</h3>
+                        <p>我們提供全面的雲端服務，協助企業無縫遷移至雲端、優化現有雲端架構，並充分利用雲端運算的彈性與效能。服務包含雲端策略諮詢、基礎架構即服務 (IaaS)、平台即服務 (PaaS) 部署、資料庫遷移與管理、以及雲端原生應用開發，確保您的系統時刻保持高效、穩定與安全。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <p>&copy; <span id="currentYear">2025</span> 時尚科技公司. All Rights Reserved.</p>
+    </footer>
+
+    <script src="https://unpkg.com/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script src="https://unpkg.com/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
