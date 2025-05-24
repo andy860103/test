@@ -1,0 +1,406 @@
+:root {
+    --primary-color: #0A0A0A; /* 深黑 */
+    --secondary-color: #F5F5F5; /* 近白 */
+    --accent-color: #00FFFF; /* 青色/電光藍 */
+    --text-color: #E0E0E0;
+    --text-dark: #333;
+    --font-primary: 'Poppins', 'Noto Sans TC', sans-serif;
+    --font-secondary: 'Noto Sans TC', sans-serif;
+    --transition-speed: 0.5s;
+    --easing: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth; /* 平滑滾動，但JS平滑滾動庫效果更好 */
+}
+
+body {
+    font-family: var(--font-secondary);
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    line-height: 1.7;
+    overflow-x: hidden; /* 防止水平滾動條 */
+}
+
+.container {
+    width: 90%;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+/* Header */
+.main-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 5%;
+    z-index: 1000;
+    transition: background-color var(--transition-speed) ease, padding var(--transition-speed) ease;
+    background-color: transparent;
+}
+
+.main-header.scrolled {
+    background-color: rgba(10, 10, 10, 0.85); /* 半透明背景 */
+    backdrop-filter: blur(10px); /* 毛玻璃效果 */
+    padding: 15px 5%;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+}
+
+.logo {
+    font-family: var(--font-primary);
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--accent-color);
+}
+
+.main-header nav ul {
+    list-style: none;
+    display: flex;
+}
+
+.main-header nav ul li {
+    margin-left: 30px;
+}
+
+.main-header nav ul li a {
+    text-decoration: none;
+    color: var(--secondary-color);
+    font-weight: 400;
+    position: relative;
+    padding: 5px 0;
+    transition: color var(--transition-speed) ease;
+}
+
+.main-header nav ul li a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--accent-color);
+    transition: width var(--transition-speed) var(--easing);
+}
+
+.main-header nav ul li a:hover {
+    color: var(--accent-color);
+}
+
+.main-header nav ul li a:hover::after {
+    width: 100%;
+}
+
+.menu-toggle { /* For mobile */
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+.menu-toggle span {
+    display: block;
+    width: 25px;
+    height: 2px;
+    background-color: var(--secondary-color);
+    margin: 5px 0;
+    transition: all 0.3s ease-in-out;
+}
+
+
+/* Hero Section */
+.hero-section {
+    height: 100vh;
+    min-height: 600px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    overflow: hidden; /* 確保背景影片不溢出 */
+    color: #fff;
+}
+
+.hero-background-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* 置於內容之後 */
+}
+
+#bgVideo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* 填滿容器，可能會裁切 */
+    filter: brightness(0.5); /* 讓影片變暗，文字更突出 */
+}
+
+
+.hero-content h1 {
+    font-family: var(--font-primary);
+    font-size: clamp(2.5rem, 6vw, 4.5rem); /* Responsive font size */
+    font-weight: 700;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+    line-height: 1.2;
+}
+
+.hero-content p {
+    font-size: clamp(1rem, 2.5vw, 1.5rem);
+    margin-bottom: 30px;
+    font-weight: 300;
+    max-width: 600px;
+}
+
+.cta-button {
+    display: inline-block;
+    background-color: var(--accent-color);
+    color: var(--primary-color);
+    padding: 12px 30px;
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: 50px; /* 圓角按鈕 */
+    transition: transform var(--transition-speed) var(--easing), background-color var(--transition-speed) var(--easing);
+    border: 2px solid var(--accent-color);
+}
+
+.cta-button:hover {
+    transform: translateY(-5px) scale(1.05);
+    background-color: transparent;
+    color: var(--accent-color);
+}
+
+/* Initial animation states for hero content */
+.animate-on-load {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s var(--easing), transform 0.8s var(--easing);
+}
+.animate-on-load.delay-1 { transition-delay: 0.2s; }
+.animate-on-load.delay-2 { transition-delay: 0.4s; }
+.animate-on-load.loaded {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* Scroll Indicator */
+.scroll-indicator {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 20px;
+    height: 40px;
+    border: 2px solid rgba(255,255,255,0.7);
+    border-radius: 20px;
+}
+.scroll-indicator span {
+    position: absolute;
+    top: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 4px;
+    height: 8px;
+    background-color: rgba(255,255,255,0.7);
+    border-radius: 2px;
+    animation: scrollHint 2s infinite cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes scrollHint {
+    0% { opacity: 1; transform: translate(-50%, 0); }
+    50% { opacity: 1; transform: translate(-50%, 10px); }
+    100% { opacity: 0; transform: translate(-50%, 10px); }
+}
+
+
+/* Content Sections */
+.content-section {
+    padding: 80px 0;
+}
+
+.content-section.bg-light {
+    background-color: #1A1A1A; /* 比主背景稍亮 */
+}
+
+.section-title {
+    font-family: var(--font-primary);
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 60px;
+    font-weight: 600;
+    position: relative;
+    padding-bottom: 15px;
+}
+
+.section-title::after { /* 標題底線裝飾 */
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background-color: var(--accent-color);
+}
+
+.about-content {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 40px;
+}
+.about-text, .about-image {
+    flex: 1;
+    min-width: 300px;
+}
+.about-image img {
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+
+/* Services Section */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.service-card {
+    background-color: #222; /* 卡片背景 */
+    padding: 30px;
+    border-radius: 8px;
+    text-align: center;
+    transition: transform 0.4s var(--easing), box-shadow 0.4s var(--easing);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+}
+
+.service-icon img {
+    margin-bottom: 20px;
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+    filter: grayscale(1) brightness(1.5) contrast(0.8) drop-shadow(0 0 5px var(--accent-color)); /* 科技感圖示 */
+     opacity: 0.7;
+    transition: filter 0.3s ease, opacity 0.3s ease;
+}
+.service-card:hover .service-icon img {
+    filter: grayscale(0) brightness(1) contrast(1) drop-shadow(0 0 8px var(--accent-color));
+    opacity: 1;
+}
+
+.service-card h3 {
+    font-family: var(--font-primary);
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: var(--accent-color);
+}
+
+/* Contact Form */
+.contact-form {
+    max-width: 600px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.contact-form input,
+.contact-form textarea {
+    padding: 15px;
+    border: 1px solid #444;
+    background-color: #282828;
+    color: var(--text-color);
+    border-radius: 5px;
+    font-family: var(--font-secondary);
+    font-size: 1rem;
+}
+.contact-form input:focus,
+.contact-form textarea:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 2px var(--accent-color);
+}
+.contact-form .cta-button {
+    align-self: flex-start;
+}
+
+
+/* Footer */
+.main-footer {
+    text-align: center;
+    padding: 30px 0;
+    background-color: #000;
+    color: #888;
+    font-size: 0.9rem;
+}
+
+/* Scroll Animation Base Styles (JS will add 'is-visible') */
+.scroll-animate {
+    opacity: 0;
+    transition: opacity 0.8s var(--easing), transform 0.8s var(--easing);
+}
+
+.scroll-animate.fade-in { transform: translateY(50px); }
+.scroll-animate.fade-in-left { transform: translateX(-50px); }
+.scroll-animate.fade-in-right { transform: translateX(50px); }
+.scroll-animate.fade-up { transform: translateY(50px); }
+
+.scroll-animate.is-visible {
+    opacity: 1;
+    transform: translate(0, 0);
+}
+
+/* Responsive (Simple Example) */
+@media (max-width: 768px) {
+    .main-header nav { display: none; /* JS will handle this for mobile menu */ }
+    .menu-toggle { display: block; }
+    .main-header.open nav {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: rgba(10, 10, 10, 0.95);
+        backdrop-filter: blur(10px);
+    }
+    .main-header.open nav ul {
+        flex-direction: column;
+        width: 100%;
+    }
+    .main-header.open nav ul li {
+        margin: 0;
+        text-align: center;
+    }
+     .main-header.open nav ul li a {
+        padding: 15px;
+        display: block;
+        border-bottom: 1px solid #333;
+     }
+     .main-header.open nav ul li a::after { display:none; }
+
+
+    .hero-content h1 { font-size: 2rem; }
+    .hero-content p { font-size: 1rem; }
+    .about-content { flex-direction: column; }
+    .section-title { font-size: 2rem; }
+}

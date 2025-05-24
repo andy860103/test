@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>時尚科技公司 - 範例網站</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;700&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="main-header"> <div class="logo">YourLogo</div> <nav>
+            <ul>
+                <li><a href="#hero">首頁</a></li>
+                <li><a href="#about">關於我們</a></li>
+                <li><a href="#services">服務項目</a></li>
+                <li><a href="#contact">聯絡我們</a></li>
+            </ul>
+        </nav>
+        <button class="menu-toggle" aria-label="Toggle menu"> <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </header>
+
+    <main>
+        <section id="hero" class="hero-section"> <div class="hero-background-video">
+                 <video autoplay muted loop playsinline id="bgVideo">
+                    您的瀏覽器不支援 HTML5 video。
+                </video>
+            </div>
+            <div class="hero-content"> <h1 class="animate-on-load">引領未來科技</h1>
+                <p class="animate-on-load delay-1">創新、高效、為您打造非凡體驗。</p>
+                <a href="#services" class="cta-button animate-on-load delay-2">了解更多</a>
+            </div>
+            <div class="scroll-indicator"> <span></span>
+            </div>
+        </section>
+
+        <section id="about" class="content-section"> <div class="container"> <h2 class="section-title scroll-animate">關於我們</h2>
+                <div class="about-content">
+                    <div class="about-text scroll-animate" data-animation="fade-in-left">
+                        <p>我們是一家專注於提供尖端技術解決方案的公司。憑藉多年的行業經驗和一支充滿熱情的專業團隊，我們致力於幫助客戶實現數位轉型...</p>
+                    </div>
+                    <div class="about-image scroll-animate" data-animation="fade-in-right">
+                        <img src="https://via.placeholder.com/500x350?text=Our+Team" alt="關於我們示意圖">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="services" class="content-section bg-light"> <div class="container">
+                <h2 class="section-title scroll-animate">服務項目</h2>
+                <div class="services-grid">
+                    <div class="service-card scroll-animate" data-animation="fade-up">
+                        <div class="service-icon"><img src="https://via.placeholder.com/80x80?text=S1" alt="服務圖標1"></div>
+                        <h3>網站開發</h3>
+                        <p>提供客製化的前端與後端開發服務。</p>
+                    </div>
+                    <div class="service-card scroll-animate" data-animation="fade-up" data-delay="100">
+                        <div class="service-icon"><img src="https://via.placeholder.com/80x80?text=S2" alt="服務圖標2"></div>
+                        <h3>UI/UX 設計</h3>
+                        <p>打造美觀且使用者友好的介面設計。</p>
+                    </div>
+                    <div class="service-card scroll-animate" data-animation="fade-up" data-delay="200">
+                        <div class="service-icon"><img src="https://via.placeholder.com/80x80?text=S3" alt="服務圖標3"></div>
+                        <h3>雲端解決方案</h3>
+                        <p>協助企業上雲，提供雲架構諮詢與部署。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="content-section">
+            <div class="container">
+                <h2 class="section-title scroll-animate">聯絡我們</h2>
+                <form class="contact-form scroll-animate" data-animation="fade-in">
+                    <input type="text" placeholder="您的姓名" required>
+                    <input type="email" placeholder="您的電子郵件" required>
+                    <textarea placeholder="您的訊息" rows="5" required></textarea>
+                    <button type="submit" class="cta-button">傳送訊息</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer"> <p>&copy; <span id="currentYear"></span> 時尚科技公司. All Rights Reserved.</p>
+    </footer>
+
+    <script src="https://unpkg.com/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script src="https://unpkg.com/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+
+    <script src="script.js"></script>
+</body>
+</html>
